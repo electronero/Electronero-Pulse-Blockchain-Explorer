@@ -14,7 +14,8 @@
             <H5 style="margin:5px">Payment id (encrypted): {{payment_id8}}</H5>
         {{/decrypted_payment_id8}}
         {{#decrypted_payment_id8}}
-            <H5 style="margin:5px">Payment id (decrypted): {{decrypted_payment_id8}}</H5>
+            <H5 style="margin:5px">Payment id (decrypted): {{decrypted_payment_id8}}
+                (value incorrect if you are not the recipient of the tx)</H5>
         {{/decrypted_payment_id8}}
     {{/has_payment_id8}}
 
@@ -68,7 +69,7 @@
         </table>
 
         <h3>
-            Sum ETN from matched outputs (i.e., incoming ETN):
+            Sum ETNX from matched outputs (i.e., incoming ETNX):
             {{#found_our_outputs}}
                 {{sum_xmr}}
             {{/found_our_outputs}}
@@ -141,7 +142,7 @@
 
         </div>
         <h3>
-            Sum ETN from matched and marked by * ring member's outputs: {{sum_mixin_xmr}}
+            Sum ETNX from matched and marked by * ring member's outputs: {{sum_mixin_xmr}}
             <br/>
             <span style="font-size: 16px"> Possible spending is:
                 {{possible_spending}} (tx fee included)
