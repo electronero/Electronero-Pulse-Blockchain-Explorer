@@ -6,6 +6,7 @@
 *.log
 *.orig
 tests/
+stage/
 build/
 alpha/
 decimal/
