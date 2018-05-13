@@ -189,8 +189,8 @@ struct tx_details
 
             mixin_str        = std::to_string(mixin_no);
             fee_str          = fmt::format("{:0.6f}", xmr_amount);
-            fee_short_str    = fmt::format("{:0.3f}", xmr_amount);
-            payed_for_kB_str = fmt::format("{:0.3f}", payed_for_kB);
+            fee_short_str    = fmt::format("{:0.2f}", xmr_amount);
+            payed_for_kB_str = fmt::format("{:0.2f}", payed_for_kB);
         }
 
 
@@ -203,8 +203,8 @@ struct tx_details
                 {"payed_for_kB"      , payed_for_kB_str},
                 {"sum_inputs"        , xmr_amount_to_str(xmr_inputs , "{:0.6f}")},
                 {"sum_outputs"       , xmr_amount_to_str(xmr_outputs, "{:0.6f}")},
-                {"sum_inputs_short"  , xmr_amount_to_str(xmr_inputs , "{:0.3f}")},
-                {"sum_outputs_short" , xmr_amount_to_str(xmr_outputs, "{:0.3f}")},
+                {"sum_inputs_short"  , xmr_amount_to_str(xmr_inputs , "{:0.2f}")},
+                {"sum_outputs_short" , xmr_amount_to_str(xmr_outputs, "{:0.2f}")},
                 {"no_inputs"         , static_cast<uint64_t>(input_key_imgs.size())},
                 {"no_outputs"        , static_cast<uint64_t>(output_pub_keys.size())},
                 {"no_nonrct_inputs"  , num_nonrct_inputs},
