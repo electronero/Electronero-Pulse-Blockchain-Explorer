@@ -1,0 +1,14 @@
+/root/onion-monero-blockchain-explorer/decimal/CMakeFiles/edit_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/CMakeFiles/rebuild_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/CMakeFiles/xmrblocks.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/CMakeFiles/edit_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/CMakeFiles/rebuild_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/CMakeFiles/myext.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/mstch/CMakeFiles/edit_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/mstch/CMakeFiles/rebuild_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/mstch/src/CMakeFiles/edit_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/mstch/src/CMakeFiles/rebuild_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/ext/mstch/src/CMakeFiles/mstch.dir
+/root/onion-monero-blockchain-explorer/decimal/src/CMakeFiles/edit_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/src/CMakeFiles/rebuild_cache.dir
+/root/onion-monero-blockchain-explorer/decimal/src/CMakeFiles/myxrm.dir
