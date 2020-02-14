@@ -174,7 +174,7 @@ MempoolStatus::read_mempool()
         last_tx.xmr_outputs_str  = xmreg::xmr_amount_to_str(last_tx.sum_outputs, "{:0.3f}");
         last_tx.timestamp_str    = xmreg::timestamp_to_str_gm(_tx_info.receive_time);
 
-        last_tx.txsize           = fmt::format("{:0.2f}", tx_size);
+        last_tx.txsize           = fmt::format("{:0.6f}", tx_size);
 
         last_tx.pID              = '-';
 
@@ -267,13 +267,13 @@ MempoolStatus::read_network_info()
     local_copy.start_time                 = rpc_network_info.start_time;
 
 
-    strncpy(local_copy.block_size_limit_str, fmt::format("{:0.2f}",
+    strncpy(local_copy.block_size_limit_str, fmt::format("{:0.6f}",
                                              static_cast<double>(
                                              local_copy.block_size_limit ) / 2.0 / 1024.0).c_str(),
                                              sizeof(local_copy.block_size_limit_str));
 
 
-    strncpy(local_copy.block_size_median_str, fmt::format("{:0.2f}",
+    strncpy(local_copy.block_size_median_str, fmt::format("{:0.6f}",
                                               static_cast<double>(
                                               local_copy.block_size_median) / 1024.0).c_str(),
                                               sizeof(local_copy.block_size_median_str));
