@@ -189,8 +189,8 @@ struct tx_details
 
             mixin_str        = std::to_string(mixin_no);
             fee_str          = fmt::format("{:0.6f}", xmr_amount);
-            fee_short_str    = fmt::format("{:0.2f}", xmr_amount);
-            payed_for_kB_str = fmt::format("{:0.2f}", payed_for_kB);
+            fee_short_str    = fmt::format("{:0.6f}", xmr_amount);
+            payed_for_kB_str = fmt::format("{:0.6f}", payed_for_kB);
         }
 
 
@@ -203,8 +203,8 @@ struct tx_details
                 {"payed_for_kB"      , payed_for_kB_str},
                 {"sum_inputs"        , xmr_amount_to_str(xmr_inputs , "{:0.6f}")},
                 {"sum_outputs"       , xmr_amount_to_str(xmr_outputs, "{:0.6f}")},
-                {"sum_inputs_short"  , xmr_amount_to_str(xmr_inputs , "{:0.2f}")},
-                {"sum_outputs_short" , xmr_amount_to_str(xmr_outputs, "{:0.2f}")},
+                {"sum_inputs_short"  , xmr_amount_to_str(xmr_inputs , "{:0.6f}")},
+                {"sum_outputs_short" , xmr_amount_to_str(xmr_outputs, "{:0.6f}")},
                 {"no_inputs"         , static_cast<uint64_t>(input_key_imgs.size())},
                 {"no_outputs"        , static_cast<uint64_t>(output_pub_keys.size())},
                 {"no_nonrct_inputs"  , num_nonrct_inputs},
@@ -220,7 +220,7 @@ struct tx_details
                 {"payment_id8"       , pod_to_hex(payment_id8)},
                 {"unlock_time"       , unlock_time},
                 {"tx_size"           , fmt::format("{:0.4f}", tx_size)},
-                {"tx_size_short"     , fmt::format("{:0.2f}", tx_size)},
+                {"tx_size_short"     , fmt::format("{:0.6f}", tx_size)},
                 {"has_add_pks"       , !additional_pks.empty()}
         };
 
@@ -585,7 +585,7 @@ public:
             // get block size in kB
             double blk_size = static_cast<double>(core_storage->get_db().get_block_size(i))/1024.0;
 
-            string blk_size_str = fmt::format("{:0.2f}", blk_size);
+            string blk_size_str = fmt::format("{:0.6f}", blk_size);
 
             blk_sizes.push_back(blk_size);
 
@@ -1000,7 +1000,7 @@ public:
         }
 
         context.insert({"mempool_size_kB",
-                        fmt::format("{:0.2f}",
+                        fmt::format("{:0.6f}",
                                     static_cast<double>(mempool_size_bytes)/1024.0)});
 
         if (add_header_and_footer)
@@ -1749,7 +1749,7 @@ public:
                 {"blk_height"           , tx_blk_height_str},
                 {"tx_size"              , fmt::format("{:0.4f}",
                                                       static_cast<double>(txd.size) / 1024.0)},
-                {"tx_fee"               , xmreg::xmr_amount_to_str(txd.fee, "{:0.2f}", true)},
+                {"tx_fee"               , xmreg::xmr_amount_to_str(txd.fee, "{:0.6f}", true)},
                 {"blk_timestamp"        , blk_timestamp},
                 {"delta_time"           , age.first},
                 {"outputs_no"           , static_cast<uint64_t>(txd.output_pub_keys.size())},
@@ -2278,7 +2278,7 @@ public:
         context["show_inputs"]   = show_key_images;
         context["inputs_no"]     = static_cast<uint64_t>(inputs.size());
         context["sum_mixin_xmr"] = xmreg::xmr_amount_to_str(
-                sum_mixin_xmr, "{:0.2f}", false);
+                sum_mixin_xmr, "{:0.6f}", false);
 
 
         uint64_t possible_spending  {0};
@@ -2294,7 +2294,7 @@ public:
         }
 
         context["possible_spending"] = xmreg::xmr_amount_to_str(
-                possible_spending, "{:0.2f}", false);
+                possible_spending, "{:0.6f}", false);
 
         add_css_style(context);
 
@@ -2608,7 +2608,7 @@ public:
                     tx_cd_data.emplace("timescales", mixins_timescales.first);
                     tx_cd_data["min_mix_time"]     = xmreg::timestamp_to_str_gm(min_mix_timestamp);
                     tx_cd_data["max_mix_time"]     = xmreg::timestamp_to_str_gm(max_mix_timestamp);
-                    tx_cd_data["timescales_scale"] = fmt::format("{:0.2f}",
+                    tx_cd_data["timescales_scale"] = fmt::format("{:0.6f}",
                                                                  mixins_timescales.second
                                                                  / 3600.0 / 24.0); // in days
 
@@ -5599,8 +5599,8 @@ private:
                 {"blk_height"            , tx_blk_height_str},
                 {"tx_blk_height"         , tx_blk_height},
                 {"tx_size"               , fmt::format("{:0.4f}", tx_size)},
-                {"tx_fee"                , xmreg::xmr_amount_to_str(txd.fee, "{:0.2f}", false)},
-                {"payed_for_kB"          , fmt::format("{:0.2f}", payed_for_kB)},
+                {"tx_fee"                , xmreg::xmr_amount_to_str(txd.fee, "{:0.6f}", false)},
+                {"payed_for_kB"          , fmt::format("{:0.6f}", payed_for_kB)},
                 {"tx_version"            , static_cast<uint64_t>(txd.version)},
                 {"blk_timestamp"         , blk_timestamp},
                 {"blk_timestamp_uint"    , blk.timestamp},
@@ -5880,7 +5880,7 @@ private:
             context.emplace("timescales", mixins_timescales.first);
 
 
-            context["timescales_scale"] = fmt::format("{:0.2f}",
+            context["timescales_scale"] = fmt::format("{:0.6f}",
                                                       mixins_timescales.second / 3600.0 / 24.0); // in days
 
             context["tx_prefix_hash"] = pod_to_hex(get_transaction_prefix_hash(tx));
